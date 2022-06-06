@@ -1,5 +1,5 @@
 #include<stdio.h>
-i/**
+/**
  * main - Entry point
  *
  * Return: Return always 0 (success)
