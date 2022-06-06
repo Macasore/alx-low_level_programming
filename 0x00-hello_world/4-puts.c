@@ -1,4 +1,3 @@
-#!/bin/bash
 #include<stdio.h>
 /** 
  * this is the main function
