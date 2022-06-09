@@ -1,4 +1,3 @@
-#include<stdio.h>
 #include<main.h>
 /**
  * main - This is the entry point
@@ -7,6 +6,6 @@
  */
 int main()
 {
-	printf("_putchar\n");
+	putchar("_putchar\n");
 	return 0;
 }
