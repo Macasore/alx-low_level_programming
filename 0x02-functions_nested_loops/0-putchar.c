@@ -1,11 +1,11 @@
-#include<main.h>
+#include "main.h"
+
 /**
- * main - This is the entry point
- *
- * Return - always return 0 (success)
- */
-int main()
+ *  * main - prints to the console _putchar followed by a newline
+ *   * Return: - Always 0 (success)
+ *    */
+int main(void);
 {
-	putchar("_putchar\n");
+	putchar("_");
 	return 0;
 }
