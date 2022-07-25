@@ -6,14 +6,15 @@
  * Return : always 0 (success)
  */
 
-int main()
+int main(void)
 {
 	char sml;
+	
 	for (sml = 'a'; sml <= 'z'; sml++)
 	{
 		putchar(sml);
 	}
 	putchar('\n');
-	return(0);
+	return (0);
 }
 
