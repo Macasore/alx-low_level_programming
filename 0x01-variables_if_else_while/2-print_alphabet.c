@@ -13,7 +13,7 @@ int main()
 	{
 		putchar(sml);
 	}
-	putchar("\n");
+	putchar('\n');
 	return(0);
 }
 
