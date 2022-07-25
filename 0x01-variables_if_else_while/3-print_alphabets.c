@@ -1,14 +1,14 @@
 #include<stdio.h>
 
 /*
- * main - Entry point
+ *main - Entry point
  *
- * Return: Always Return 0 (success)
+ *Return: Always Return 0 (success)
  */
 
 int main(void)
 {
-	char sml,cap;
+	char sml, cap;
 
 	for (sml = 'a'; sml <= 'z'; sml++)
 	{
