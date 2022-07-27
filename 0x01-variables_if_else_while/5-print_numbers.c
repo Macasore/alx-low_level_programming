@@ -11,9 +11,9 @@ int main(void)
 
 	for (digit = '0'; digit < '10'; digit++)
 	{
-		putchar(digit);
+		printf(digit);
 	}
-	putchar('\n');
+	printf('\n');
 	return (0);
 }
 
