@@ -12,7 +12,7 @@ int main(void)
 
 	for (hex = '0'; hex <= 'f'; hex++)
 	{
-		if (hex > '9' and hex < 'a')
+		if (hex > '9' && hex < 'a')
 			continue;
 		else
 			putchar(hex);
