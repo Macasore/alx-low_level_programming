@@ -15,8 +15,9 @@ int main(void)
 		if (hex > '9' and hex < 'a')
 			continue;
 		else
-		       putchar(hex);
+			putchar(hex);
 	}
 	putchar('\n');
 	return (0);
 }
+
