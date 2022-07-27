@@ -8,7 +8,7 @@
 
 int main(void)
 {
-	char comb;
+	int comb;
 
 	for (comb = '0'; comb <= '9'; comb++)
 	{
