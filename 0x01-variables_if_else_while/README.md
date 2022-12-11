@@ -1,1 +1,1 @@
-a c program that checks whether a number is negative or positive
+a folder for conditional loops in c
