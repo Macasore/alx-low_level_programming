@@ -1,1 +1,1 @@
-this is a directory for nested loop functions
+Read me for nested loops in c

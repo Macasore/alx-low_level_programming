@@ -1,19 +1,20 @@
+#include <stdio.h>
 #include "main.h"
-
 /**
- *main - prints to the console _putchar followed by a newline
- *Return: - Always 0 (success)
- */
+ * main - prints _putchar followed by a newline
+ * @tprint - variable to be printed
+ * Return: Always 0
+*/
 int main(void)
 {
-	_putchar('_');
-	_putchar('p');
-	_putchar('u');
-	_putchar('t');
-	_putchar('c');
-	_putchar('h');
-	_putchar('a');
-	_putchar('r');
+	char tprnt[9] = "_putchar";
+	int i = 0;
+
+	while (tprnt[i] != '\0')
+	{
+		_putchar(tprnt[i]);
+		i++;
+	}
 	_putchar('\n');
 	return (0);
 }
