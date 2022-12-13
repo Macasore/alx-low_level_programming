@@ -2,7 +2,7 @@
 
 /**
  * main - prints _putchar followed by a newline
- * @tprint - variable to be printed
+ *
  * Return: Always 0
 */
 int main(void)
