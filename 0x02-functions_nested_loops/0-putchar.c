@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include "main.h"
+
 /**
  * main - prints _putchar followed by a newline
  * @tprint - variable to be printed
