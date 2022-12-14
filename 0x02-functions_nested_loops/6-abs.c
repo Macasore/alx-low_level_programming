@@ -4,7 +4,7 @@
  * _abs - computes the absolute value of an integer.
  * @c: the parameter to be used.
  *
- * Return: Always 0.
+ * Return: returns the absolute value
 */
 int _abs(int c)
 {
