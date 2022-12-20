@@ -1,1 +1,1 @@
-pointers an array in c
+README for pointers
