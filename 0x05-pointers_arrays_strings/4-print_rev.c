@@ -13,13 +13,11 @@ void print_rev(char *c)
 	int j;
 	int count = 0;
 
-	for (i = 1; *(c + i) != '\0'; i++)
+	for (i = 0; *(c + i) != '\0'; i++)
 	{
-		if (*(c + i) == '\0')
-			count = 0;
-		else
-			count += 1;
+		count += 1;
 	}
+	count -= 1;
 	for (j = count; j >= 0; j--)
 	{
 		_putchar(c[j]);
