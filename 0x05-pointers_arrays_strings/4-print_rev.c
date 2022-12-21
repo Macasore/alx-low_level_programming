@@ -15,7 +15,10 @@ void print_rev(char *c)
 
 	for (i = 1; *(c + i) != '\0'; i++)
 	{
-		count += 1;
+		if (*(c + i) == '\0')
+			count = 0;
+		else
+			count += 1;
 	}
 	for (j = count; j >= 0; j--)
 	{
