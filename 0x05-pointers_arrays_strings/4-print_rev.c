@@ -13,7 +13,7 @@ void print_rev(char *c)
 	int j;
 	int count = 0;
 
-	for (i = 0; *(c + i) != '\0'; i++)
+	for (i = 0; c[i] != '\0'; i++)
 	{
 		count += 1;
 	}
