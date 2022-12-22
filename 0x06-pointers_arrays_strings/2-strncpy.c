@@ -6,26 +6,18 @@
  * @src: the string to be copied.
  * @n: determines the number of characters to be copied.
  *
- * Return: Always 0 success.
+ * Return: the updated pointer
 */
 
 char *_strncpy(char *dest, char *src, int n)
 {
-	int i;
-	int j = 0;
+	int i = 0;
 
-	for (i = 0; dest[i] != '\0'; i++)
+	while (i < n)
 	{
-		if (j < n)
-		{
-			dest[i] = src[j];
-			j++;
-		}
-		else
-		{
-			dest[i] = dest[i];
-		}
-
+		dest[i] = src[i];
+		i++;
 	}
+
 	return (dest);
 }
