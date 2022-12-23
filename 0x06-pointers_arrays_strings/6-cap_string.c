@@ -1,52 +1,31 @@
 #include "main.h"
 
 /**
- * cap_string - converts lowercase strings to uppercase
- * @c: string
- *
- * Return: void
+ * cap_string - capitalizes all words in a string
+ * @s: string
+ * Return: address of s
  */
-char *cap_string(char *c)
+char *cap_string(char *s)
 {
-	int i = 0;
-	int res;
+	int i = 0, j;
+	char a[] = " \t\n,;.!?\"(){}";
 
-	while (c[i] != '\0')
+	while (*(s + i))
 	{
-
-		if (isSeperator(c[i]))
+		if (*(s + i) >= 'a' && *(s + i) <= 'z')
 		{
-			res = i + 1;
-
-			if (c[res] > 96 && c[res] <= 122)
-				c[res] -= 32;
+			if (i == 0)
+				*(s + i) -= 'a' - 'A';
+			else
+			{
+				for (j = 0; j <= 12; j++)
+				{
+					if (a[j] == *(s + i - 1))
+						*(s + i) -= 'a' - 'A';
+				}
+			}
 		}
-
 		i++;
 	}
-
-	return (c);
-}
-
-/**
- * isSeperator - returns 1 if a character is a seperator
- * @s: character
- *
- * Return: 1 if seperator and 0 if otherwise
- */
-
-int isSeperator(char s)
-{
-	char seperators[13] = {32, '\t', '\n', ',', ';', '.', '!', '?', '\"',
-		'(', ')', '{', '}'};
-	int i = 0;
-
-	while (i < 13)
-	{
-		if (seperators[i] == s)
-			return (1);
-		i++;
-	}
-
-	return (0);
+	return (s);
 }
