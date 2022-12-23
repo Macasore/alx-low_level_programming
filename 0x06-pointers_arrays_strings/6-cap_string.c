@@ -1,7 +1,5 @@
 #include "main.h"
 
-int isSeperator(char);
-
 /**
  * cap_string - converts lowercase strings to uppercase
  * @c: string
