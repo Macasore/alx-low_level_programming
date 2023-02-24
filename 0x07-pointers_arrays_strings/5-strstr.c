@@ -1,35 +1,51 @@
 #include "main.h"
+#include <stddef.h>
+int contains(char *s, char *c);
+
 /**
- *_strstr - find a string in a string.
- *@haystack: string.
- *@needle: substring.
- *Return: char.
- */
+ * _strstr - this is a function that locates a substring
+ * @haystack: the string to be scanned
+ * @needle: the string used to scan haystack
+ *
+ * Return: a pointer to the beginning of the located substring
+*/
 
 char *_strstr(char *haystack, char *needle)
 {
-	unsigned int length_needle = 0, i = 0, j, tmpi, checker;
+	unsigned int i, j, k, postion;
 
-	while (needle[length_needle] != '\0')
-		length_needle++;
-
-	while (haystack[i] != '\0')
+	if (contains(haystack, needle))
 	{
-		tmpi = i;
-		checker = 0;
-		for (j = 0; j < length_needle; j++)
+		for (j = 0; haystack[j] != '\0'; j++)
 		{
-			if (haystack[tmpi] == needle[j])
+			if (needle[0] == haystack[j])
 			{
-				tmpi++;
-				checker++;
+				postion = j;
+				k = j;
+				for (i = 1; needle[i] <= '\0'; i++)
+				{
+					k++;
+					if (needle[i] == haystack[k])
+						continue;
+					break;
+				}
+				if (needle[i] == '\0')
+					break;
 			}
 		}
-		if (checker == length_needle)
-			return (haystack + i);
-		i++;
+		return (haystack + postion);
 	}
+	return (NULL);
+}
 
+int contains(char *s, char *c)
+{
+	unsigned int i;
+
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		if (c[0] == s[i])
+			return (1);
+	}
 	return (0);
-
 }
