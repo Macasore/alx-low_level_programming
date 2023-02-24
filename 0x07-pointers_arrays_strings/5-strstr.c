@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stddef.h>
+int contains(char *s, char *c);
 
 /**
  * _strstr - this is a function that locates a substring
@@ -12,24 +14,38 @@ char *_strstr(char *haystack, char *needle)
 {
 	unsigned int i, j, k, postion;
 
-	for (j = 0; haystack[j] != '\0'; j++)
+	if (contains(haystack, needle))
 	{
-		if (needle[0] == haystack[j])
+		for (j = 0; haystack[j] != '\0'; j++)
 		{
-			postion = j;
-			k = j;
-			for (i = 1; needle[i] <= '\0'; i++)
+			if (needle[0] == haystack[j])
 			{
-				k++;
-				if (needle[i] == haystack[k])
-					continue;
-				break;
+				postion = j;
+				k = j;
+				for (i = 1; needle[i] <= '\0'; i++)
+				{
+					k++;
+					if (needle[i] == haystack[k])
+						continue;
+					break;
+				}
+				if (needle[i] == '\0')
+					break;
 			}
-			if (needle[i] == '\0')
-				return (haystack + postion);
-
 		}
+		return (haystack + postion);
 	}
-	return (haystack + postion);
+	return (NULL);
 }
 
+int contains(char *s, char *c)
+{
+	unsigned int i;
+
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		if (c[0] == s[i])
+			return (1);
+	}
+	return (0);
+}
