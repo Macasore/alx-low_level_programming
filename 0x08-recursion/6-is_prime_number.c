@@ -11,7 +11,7 @@ int check(int n, int y);
 int is_prime_number(int n)
 {
 	if (n <= 1)
-		return 0
+		return 0;
 	return (check(n, 2));
 }
 
@@ -33,5 +33,5 @@ int check(int n, int y)
 	if (y > n / 2)
 		return (1);
 	y++;
-	return (prime_test(n, y));
+	return (check(n, y));
 }
