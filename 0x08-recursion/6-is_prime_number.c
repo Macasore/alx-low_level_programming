@@ -1,29 +1,28 @@
 #include "main.h"
-int prime_test(int n, int y);
+int check(int n, int y);
 /**
- * is_prime_number - checks if a number is a prime number or not
- * @n: the number to be checked
- *
- * Return: returns 1 if n is a prime number and 0 otherwise
+* is_prime_number - returns 1 if an integer is a prime number
+* otherwise  returns 0.
+* @n: number to be checked
+*
+* Return: the respective value
 */
 
 int is_prime_number(int n)
 {
 	if (n <= 1)
-		return (0);
-	else
-		return (prime_test(n, 2));
+		return 0
+	return (check(n, 2));
 }
 
 /**
- * prime_test - checks if a number is a prime number.
+ * check - checks if a number is a prime number.
  * @n: the number to be checked
  * @y: the divisor
  *
  * Return: returns 1 if n is a prime number and 0 otherwise
 */
-
-int prime_test(int n, int y)
+int check(int n, int y)
 {
 	int remainder;
 
@@ -35,5 +34,4 @@ int prime_test(int n, int y)
 		return (1);
 	y++;
 	return (prime_test(n, y));
-
 }
