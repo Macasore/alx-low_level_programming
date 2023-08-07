@@ -1,30 +1,26 @@
-#include<stdio.h>
-#include<stdlib.h>
-
+#include <stdio.h>
+#include <stdlib.h>
 /**
- * main - multiplies two numbers
- * @argc: the argument counter
- * @argv: the argument vector
- *
- * Return: 0 or 1 depending on the result
+* main - the entering function
+* @argc: the argument counter
+* @argv: the argument vector
+* Return: always zero
 */
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-	int count, res = 1;
+	int result = 1;
+	int i;
 
-	if (argc == 3)
-	{
-		for (count = 1; count < argc; count++)
-		{
-			res *= atoi(argv[count]);
-		}
-		printf("%d\n", res);
-		return (0);
-	}
+	if (argc != 3)
+		printf("Error\n");
 	else
 	{
-		printf("Error\n");
-		return (1);
+		for (i = 1; i < argc; i++)
+		{
+			result *= atoi(argv[i]);
+		}
+		printf("%d\n", result);
 	}
+	return (0);
 }
