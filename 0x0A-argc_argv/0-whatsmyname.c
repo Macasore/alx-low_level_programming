@@ -1,15 +1,14 @@
-#include<stdio.h>
-
+#include <stdio.h>
 /**
- * main - the main function
- * @argc: the argument counter
- * @argv: the argument vector
- *
- * Return: 0 or 1 depending on the result
+* main - the starting function
+* @argc: the argument counter
+* @argv: the argument vector
+* Return: always zero
 */
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-	printf("%s\n", argv[argc - 1]);
+	(void)argc;
+	printf("%s\n", argv[0]);
 	return (0);
 }
