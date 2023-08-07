@@ -25,11 +25,11 @@ int main(int argc, char *argv[])
 		for (count = 1; count < argc; count++)
 		{
 
-			if (is_digit(argv[count]) == 1)
+			if (is_digit(argv[count]))
 			{
 				res += atoi(argv[count]);
 			}
-			if (is_digit(argv[count]) == 0)
+			else
 			{
 				printf("Error\n");
 				return (1);
