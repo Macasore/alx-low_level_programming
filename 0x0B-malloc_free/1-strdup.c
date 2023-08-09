@@ -16,7 +16,7 @@ char *_strdup(char *str)
 	if (str == NULL)
 		return (NULL);
 	count = count_character(str);
-	nw_store = malloc(sizeof(char) * count);
+	nw_store = malloc(sizeof(char) * (count + 1));
 
 	if (nw_store == NULL)
 	{
