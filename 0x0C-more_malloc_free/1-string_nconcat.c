@@ -6,6 +6,7 @@ int counter(char *s);
  * @s1: first string
  * @s2: second string
  * @n: the size of the second string required
+ * Return: returns a pointer to the newly allocated space
 */
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
@@ -16,8 +17,11 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	count1 = counter(s1);
 	count2 = counter(s2);
 	if (n < count2)
+	{
 		total = count1 + (count2 - n) + 1;
-	total = count1 + (count2) + 1;
+		count2 = n;
+	}
+	total = count1 + count2 + 1;
 
 	nw_space = malloc(sizeof(char) * total);
 
@@ -30,13 +34,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 	for (j = 0; j < count2; j++)
 	{
-		if (n < count2)
-		{
-			if (n == 0)
-				break;
-			nw_space[i + j] = s2[j];
-			n--;
-		}
 		nw_space[i + j] = s2[j];
 	}
 	nw_space[i + j] = '\0';
