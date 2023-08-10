@@ -10,7 +10,7 @@ int counter(char *s);
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	int count1, count2, i, j, total;
+	unsigned int count1, count2, i, j, total;
 	char *nw_space;
 
 	count1 = counter(s1);
@@ -28,7 +28,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 	for (j = 0; j < count2; j++)
 	{
-		if ((int)n < count2)
+		if (n < count2)
 		{
 			if (n == 0)
 				break;
