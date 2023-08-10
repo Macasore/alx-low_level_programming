@@ -17,7 +17,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	count2 = counter(s2);
 	if (n < count2)
 		total = count1 + (count2 - n) + 1;
-	total = count1 + (count2 - n) + 1;
+	total = count1 + (count2) + 1;
 
 	nw_space = malloc(sizeof(char) * total);
 
