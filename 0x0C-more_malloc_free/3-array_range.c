@@ -24,7 +24,8 @@ int *array_range(int min, int max)
 
 	for (i = 0; i < nbm; i++)
 	{
-		p[i] = min + 1;
+		p[i] = min;
+		min++;
 	}
 	return (p);
 }
