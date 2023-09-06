@@ -1,52 +1,55 @@
 #include "main.h"
-int _strlen(char *s);
+int count(char *text);
 /**
- * append_text_to_file - appends text to a file
- * @filename: name of new file or existing file
- * @text_content: text content to be put into the file
- *
- * Return: 1 on success else -1
+ * append_text_to_file - appends text at the end of a file
+ * @filename: the file where the text would be appended
+ * @text_content: the string to be appended
+ * Return: 1 on success -1 on failure
 */
+
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int fd, wr;
-	char *text;
+	int fd, length;
+	ssize_t bytes_written;
 
-	text = text_content ? text_content : "";
+	if (filename == NULL)
+		return (0);
 
-	if (!filename)
-		return (-1);
 
-	fd = open(filename, O_APPEND | O_WRONLY);
+
+	fd = open(filename, O_WRONLY | O_APPEND);
 
 	if (fd == -1)
 		return (-1);
 
-	wr = (int) write(fd, text, _strlen(text));
-
-	if (wr == -1)
-		return (-1);
-
+	if (text_content != NULL)
+	{
+		length = count(text_content);
+		bytes_written = write(fd, text_content, length);
+		if (bytes_written == -1)
+		{
+			close(fd);
+			return (-1);
+		}
+	}
 	close(fd);
-
 	return (1);
 }
 
 /**
- * _strlen - gets lenght of a string
- * @s: string pointer to get length of
- *
- * Return: length of the string
+ * count - counts the length of the string
+ * @text: the string to be counted
+ * Return: returns the length of the string
 */
-int _strlen(char *s)
+
+int count(char *text)
 {
-	int len = 0;
+	int counter = 0;
 
-	while (*s)
+	while (*text != '\0')
 	{
-		len++;
-		s++;
+		counter++;
+		text++;
 	}
-
-	return (len);
+	return (counter);
 }
