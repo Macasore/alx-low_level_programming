@@ -1,5 +1,5 @@
 #include "main.h"
-
+int _strlen(char *s);
 /**
  * append_text_to_file - appends text to a file
  * @filename: name of new file or existing file
