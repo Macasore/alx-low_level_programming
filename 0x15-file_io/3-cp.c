@@ -21,7 +21,6 @@ void print_error(int code, const char *message, char *arg)
 
 int main(int argc, char *argv[])
 {
-	int out = STDOUT_FILENO;
 	int fd_from, fd_to;
 	char buffer[1025];
 	ssize_t bytes_read, bytes_written;
