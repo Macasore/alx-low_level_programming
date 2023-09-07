@@ -1,81 +1,60 @@
 #include "main.h"
-void copy_file(int a, int b, char *file_from, char *file_to);
 
 /**
- * main - copies text from one file to the other
- * @argc: number of arguments passed to the program
- * @argv: array of arguments passed to the program
- *
- * Return: Always 0
-*/
+ * print_error - prints an error
+ * @code: error code
+ * @message: error message
+ * @arg: argument
+ */
+void print_error(int code, const char *message, char *arg)
+{
+	dprintf(STDERR_FILENO, message, arg);
+	exit(code);
+}
+
+/**
+ * main - creates a copy of the cp command
+ * @argc: the number of command line arguments
+ * @argv: the command line arguments
+ * Return: 0
+ */
 
 int main(int argc, char *argv[])
 {
-	int file_from, file_to;
+	int out = STDOUT_FILENO;
+	int fd_from, fd_to;
+	char buffer[1025];
+	ssize_t bytes_read, bytes_written;
 
 	if (argc != 3)
+		print_error(97, "Usage: cp file_from file_to\n", NULL);
+
+	fd_from = open(argv[1], O_RDONLY);
+	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+
+	if (fd_from == -1)
+		print_error(98, "Error: Can't read from file %s\n", argv[1]);
+
+	if (fd_to == -1)
+		print_error(99, "Error: Can't write to %s\n", argv[2]);
+
+	while ((bytes_read = read(fd_from, buffer, 1024)))
 	{
-		dprintf(STDOUT_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
+		bytes_written = write(fd_to, buffer, bytes_read);
+		if (bytes_written == -1)
+			print_error(99, "Error: Can't write to %s\n", argv[2]);
 	}
-
-	file_from = open(argv[1], O_RDONLY);
-	if (file_from == -1)
+	if (close(fd_from) == -1)
 	{
-		dprintf(STDOUT_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
-
-	file_to = open(argv[2], O_TRUNC | O_CREAT | O_WRONLY, 0664);
-	if (file_to == -1)
-	{
-		dprintf(STDOUT_FILENO, "Error: Can't write to %s\n", argv[2]);
-		exit(99);
-	}
-
-	copy_file(file_from, file_to, argv[1], argv[2]);
-
-	if (close(file_from) == -1)
-	{
-		dprintf(STDOUT_FILENO, "Error: Can't close fd %d\n", file_from);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
 		exit(100);
 	}
 
-	if (close(file_to) == -1)
+	if (close(fd_to) == -1)
 	{
-		dprintf(STDOUT_FILENO, "Error: Can't close fd %d\n", file_to);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
 		exit(100);
 	}
 
 	return (0);
-}
-
-/**
- * copy_file - copies text from a to b
- * @a: file descriptor of source file
- * @b: file descriptor of destination file
- * @file_from: name of source file
- * @file_to: name of destination file
- *
- * Return: void
-*/
-void copy_file(int a, int b, char *file_from, char *file_to)
-{
-	char buf[1025];
-	int read_bytes;
-
-	read_bytes = read(a, buf, 1024);
-
-	if (read_bytes == -1)
-	{
-		dprintf(STDOUT_FILENO, "Error: Can't read from file %s\n", file_from);
-		exit(98);
-	}
-
-
-	if (write(b, buf, read_bytes) == -1)
-	{
-		dprintf(STDOUT_FILENO, "Error: Can't write to %s\n", file_to);
-		exit(99);
-	}
 }
